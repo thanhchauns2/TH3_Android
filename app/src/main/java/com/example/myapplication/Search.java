@@ -47,19 +47,17 @@ public class Search extends AppCompatActivity {
             electricity = Integer.parseInt(electricityEditText);
         }
         if (cityEditText.length() > 0){
-            city = electricityEditText;
+            city = cityEditText;
         }
         for (House h : houseList){
 //            System.out.println(area);
-            System.out.println(areaEditText);
+            System.out.println(city);
+//            System.out.println(h.getAreaCode());
             if (h.getRentPrice() < min_p || h.getRentPrice() > max_p) continue;
             if (area != -1 && h.getArea() != area) continue;
             if (electricity != -1 && h.getElectricityPrice() != electricity) continue;
-            if (city != "-1" && h.getAreaCode() != city) continue;
+            if (city != "-1" && !h.getAreaCode().equals(city)) continue;
             satisfied.add(h);
-        }
-        for (House h : satisfied){
-            System.out.println(h);
         }
         ArrayAdapter<House> adapter = new ArrayAdapter<House>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, satisfied);

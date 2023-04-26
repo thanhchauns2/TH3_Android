@@ -34,24 +34,28 @@ public class Search extends AppCompatActivity {
         int area = -1;
         String city = "-1";
         int electricity = -1;
-        if (minPriceEditText != null){
+        if (minPriceEditText.length() > 0){
             min_p = Integer.parseInt(minPriceEditText);
         }
-        if (maxPriceEditText != null){
+        if (maxPriceEditText.length() > 0){
             max_p = Integer.parseInt(maxPriceEditText);
         }
-        if (areaEditText != null){
+        if (areaEditText.length() > 0){
             area = Integer.parseInt(areaEditText);
         }
-        if (electricityEditText != null){
+        if (electricityEditText.length() > 0){
             electricity = Integer.parseInt(electricityEditText);
         }
+        if (cityEditText.length() > 0){
+            city = electricityEditText;
+        }
         for (House h : houseList){
-//            System.out.println(h);
-//            if (h.getRentPrice() < min_p || h.getRentPrice() > max_p) continue;
-//            if (h.getArea() != -1 && h.getArea() != area) continue;
-//            if (h.getElectricityPrice() != -1 && h.getElectricityPrice() != electricity) continue;
-//            if (h.getAreaCode() != "-1" && h.getAreaCode() != city) continue;
+//            System.out.println(area);
+            System.out.println(areaEditText);
+            if (h.getRentPrice() < min_p || h.getRentPrice() > max_p) continue;
+            if (area != -1 && h.getArea() != area) continue;
+            if (electricity != -1 && h.getElectricityPrice() != electricity) continue;
+            if (city != "-1" && h.getAreaCode() != city) continue;
             satisfied.add(h);
         }
         for (House h : satisfied){

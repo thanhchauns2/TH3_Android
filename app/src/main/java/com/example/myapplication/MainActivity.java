@@ -44,11 +44,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent searchIntent = new Intent(MainActivity.this, Search.class);
-                searchIntent.putExtra("minPriceEditText", minPriceEditText.getText());
-                searchIntent.putExtra("maxPriceEditText", maxPriceEditText.getText());
-                searchIntent.putExtra("areaEditText", areaEditText.getText());
-                searchIntent.putExtra("cityEditText", cityEditText.getText());
-                searchIntent.putExtra("electricityEditText", electricityEditText.getText());
+                searchIntent.putExtra("minPriceEditText", minPriceEditText.getText().toString());
+                searchIntent.putExtra("maxPriceEditText", maxPriceEditText.getText().toString());
+                searchIntent.putExtra("areaEditText", areaEditText.getText().toString());
+                searchIntent.putExtra("cityEditText", cityEditText.getText().toString());
+                searchIntent.putExtra("electricityEditText", electricityEditText.getText().toString());
                 startActivity(searchIntent);
             }
         });
@@ -57,11 +57,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent searchIntent = new Intent(MainActivity.this, Search.class);
-                searchIntent.putExtra("minPriceEditText", "0");
-                searchIntent.putExtra("maxPriceEditText", "100000000");
-                searchIntent.putExtra("areaEditText", "-1");
-                searchIntent.putExtra("cityEditText", "-1");
-                searchIntent.putExtra("electricityEditText", "-1");
                 startActivity(searchIntent);
             }
         });

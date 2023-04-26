@@ -30,28 +30,32 @@ public class Search extends AppCompatActivity {
 
         List<House> satisfied = new ArrayList<House>();
 
-        long min_p = 0, max_p = 1000000000;
-        long area = -1;
+        int min_p = 0, max_p = 1000000000;
+        int area = -1;
         String city = "-1";
-        long electricity = -1;
-        if (minPriceEditText.length() > 0){
+        int electricity = -1;
+        if (minPriceEditText != null){
             min_p = Integer.parseInt(minPriceEditText);
         }
-        if (maxPriceEditText.length() > 0){
+        if (maxPriceEditText != null){
             max_p = Integer.parseInt(maxPriceEditText);
         }
-        if (areaEditText.length() > 0){
+        if (areaEditText != null){
             area = Integer.parseInt(areaEditText);
         }
-        if (electricityEditText.length() > 0){
+        if (electricityEditText != null){
             electricity = Integer.parseInt(electricityEditText);
         }
         for (House h : houseList){
-            if (h.getRentPrice() < min_p || h.getRentPrice() > max_p) continue;
-            if (h.getArea() != -1 && h.getArea() != area) continue;
-            if (h.getElectricityPrice() != -1 && h.getElectricityPrice() != electricity) continue;
-            if (h.getAreaCode() != "-1" && h.getAreaCode() != city) continue;
+//            System.out.println(h);
+//            if (h.getRentPrice() < min_p || h.getRentPrice() > max_p) continue;
+//            if (h.getArea() != -1 && h.getArea() != area) continue;
+//            if (h.getElectricityPrice() != -1 && h.getElectricityPrice() != electricity) continue;
+//            if (h.getAreaCode() != "-1" && h.getAreaCode() != city) continue;
             satisfied.add(h);
+        }
+        for (House h : satisfied){
+            System.out.println(h);
         }
         ArrayAdapter<House> adapter = new ArrayAdapter<House>(this,
                 android.R.layout.simple_list_item_1, android.R.id.text1, satisfied);

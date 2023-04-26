@@ -60,8 +60,18 @@ public class House {
     public String getAreaCode() {
         return areaCode;
     }
-
     public void setAreaCode(String areaCode) {
         this.areaCode = areaCode;
+    }
+
+    public String toString() {
+        return "House{" +
+                "id=" + id +
+                ", area=" + area +
+                ", rentPrice=" + rentPrice +
+                ", electricityPrice=" + electricityPrice +
+                ", waterPrice=" + waterPrice +
+                ", areaCode='" + areaCode + '\'' +
+                '}';
     }
 }
